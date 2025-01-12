@@ -253,7 +253,7 @@ def download_vcards(contacts: str):
 	frappe.response["filecontent"] = "\n".join(vcards).encode("utf-8")
 	frappe.response["type"] = "binary"
 
-
+@frappe.whitelist()
 def get_default_contact(doctype, name):
 	"""Return default contact for the given doctype, name."""
 	out = frappe.db.sql(
